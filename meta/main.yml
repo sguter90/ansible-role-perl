@@ -1,0 +1,14 @@
+---
+galaxy_info:
+  author: sguter90
+  description: Install CPAN Minus (CPANM) and Perl Modules
+  license: BSD
+  min_ansible_version: 1.4
+  platforms:
+  - name: EL
+    versions:
+        - all
+  categories:
+      - packaging
+      - system
+dependencies: []

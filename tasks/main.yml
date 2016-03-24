@@ -1,0 +1,29 @@
+---
+- name: install cpan and perl-devel
+  yum: name={{ item }}
+       state=present
+  with_items:
+    - perl
+    - perl-devel
+    - perl-CPAN
+
+- name: download cpanm
+  get_url: url=http://cpanmin.us/
+           dest=/tmp/cpanm.pl
+           mode=755
+
+- name: install cpanm so that we can use the ansible cpanm module
+  command: perl cpanm.pl App::cpanminus
+  args:
+    chdir: /tmp/
+    creates: /usr/local/bin/cpanm
+
+- name: add cpanm symbolic link to /usr/bin/
+  file: src=/usr/local/bin/cpanm
+        dest=/usr/bin/cpanm
+        state=link
+
+
+- name: install Perl packages
+  cpanm: name={{ item }}
+  with_items: perl_packages
