@@ -6,7 +6,7 @@ Install CPAN Minus and Perl Modules
 Requirements
 ------------
 
-None
+perl must be installed on system.
 
 Role Variables
 --------------
