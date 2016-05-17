@@ -26,4 +26,5 @@
 
 - name: install Perl packages
   cpanm: name={{ item }}
-  with_items: perl_packages
+         notest=True
+  with_items: '{{perl_packages}}'
